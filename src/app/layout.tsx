@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +17,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  console.log("<layout>");
+
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <nav className="test-card flex-h">
+            <div>Logo: {Math.round(Math.random() * 1000)}</div>
+            <Link href={"/"}>Root</Link>
+            <Link href={"/home"}>Home</Link>
+            <UserButton afterSignOutUrl="/" />
+          </nav>
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
