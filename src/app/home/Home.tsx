@@ -1,10 +1,9 @@
 import React from "react";
-import Layout from "../../lib/layout/Layout";
 import css from "./Home.module.scss";
 
 const Home = () => {
   return (
-    <Layout isMaxWidth>
+    <>
       <h1 className="h1">Welcome to Cerebro</h1>
 
       <div className={css.HomeText}>
@@ -45,7 +44,7 @@ const Home = () => {
 
         <p className="body2">Written by ai</p>
       </div>
-    </Layout>
+    </>
   );
 };
 

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "@/style/global.scss";
 import { ClerkProvider } from "@clerk/nextjs";
-import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
 import { Suspense } from "react";
+import Layout from "@/lib/layout/Layout";
 
 const open_Sans = Open_Sans({ subsets: ["latin"] });
 
@@ -24,12 +23,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={open_Sans.className}>
-          <nav className="test-card flex-h">
-            <div>Logo: {Math.round(Math.random() * 1000)}</div>
-            <Link href={"/"}>Root</Link>
-            <Link href={"/home"}>Home</Link>
-          </nav>
-          <Suspense>{children}</Suspense>
+          <Layout isMaxWidth>
+            <Suspense>{children}</Suspense>
+          </Layout>
         </body>
       </html>
     </ClerkProvider>

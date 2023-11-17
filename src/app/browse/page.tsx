@@ -3,6 +3,7 @@ import Layout from "@/lib/layout/Layout";
 import { API } from "@/utils/api";
 import { auth } from "@clerk/nextjs";
 import Pagination from "@/lib/pagination/Pagination";
+import ItemGrid from "@/lib/item-grid/ItemGrid";
 
 type Props = {
   searchParams: { page?: string };
@@ -10,8 +11,8 @@ type Props = {
 
 const BrowsePage = async ({ searchParams: { page } }: Props) => {
   const clerkToken = auth();
-  console.log("clerkToken", clerkToken);
-  console.log("Token: ", await clerkToken.getToken());
+  // console.log("clerkToken", clerkToken);
+  // console.log("Token: ", await clerkToken.getToken());
 
   // TODO: simplify making requests to the API
   const pageNr = parseInt(page ?? "1");
@@ -27,8 +28,7 @@ const BrowsePage = async ({ searchParams: { page } }: Props) => {
   const pageCount = Math.ceil(count / 10);
 
   return (
-    <Layout>
-      <h1>Browse</h1>
+    <>
       {/*<pre>*/}
       {/*  {JSON.stringify(*/}
       {/*    {*/}
@@ -40,17 +40,10 @@ const BrowsePage = async ({ searchParams: { page } }: Props) => {
       {/*    2,*/}
       {/*  )}*/}
       {/*</pre>*/}
-      {/*<pre>{JSON.stringify(items.data, null, 2)}</pre>*/}
       <Pagination page={pageNr} pageCount={pageCount} />
-      {/*{itemsQuery.data && <ItemGrid items={itemsQuery.data.items} />}*/}
-      {/*{itemsQuery.isError && itemsQuery.data?.items.length === 0 && (*/}
-      {/*  <IconWithText text="Failed to load items" />*/}
-      {/*)}*/}
-      {/*{itemsQuery.isFetching && itemsQuery.data?.items.length === 0 && (*/}
-      {/*  <CircleLoader />*/}
-      {/*)}*/}
+      {items?.length > 0 && <ItemGrid items={items} />}
       <Pagination page={pageNr} pageCount={pageCount} />
-    </Layout>
+    </>
   );
 };
 

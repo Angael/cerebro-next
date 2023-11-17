@@ -8,6 +8,8 @@ type Props = {
   pageCount: number;
 };
 
+const getHref = (page: number) => `/browse?page=${page}`;
+
 const Pagination = ({ page, pageCount }: Props) => {
   const canGoBack = page > 1;
   const canGoForward = page < pageCount;
@@ -16,22 +18,26 @@ const Pagination = ({ page, pageCount }: Props) => {
 
   return (
     <nav className={css.paginationStack}>
-      <Btn disabled={!canGoBack}>Back</Btn>
+      <BtnLink href={getHref(page - 1)} aria-disabled={!canGoBack}>
+        Back
+      </BtnLink>
 
       <div className={css.pages}>
         {shownButtons.map((nr) => (
           <BtnLink
             className={css.mobileHidden}
             key={nr}
-            href={`/browse?page=${nr}`}
-            style={page === nr ? { fontWeight: "bold" } : undefined}
+            href={getHref(nr)}
+            aria-disabled={page === nr}
           >
             {nr}
           </BtnLink>
         ))}
       </div>
 
-      <Btn disabled={!canGoForward}>Next</Btn>
+      <BtnLink aria-disabled={!canGoForward} href={getHref(page + 1)}>
+        Next
+      </BtnLink>
     </nav>
   );
 };
