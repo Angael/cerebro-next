@@ -1,13 +1,12 @@
 "use client"; // Error components must be Client Components
 
 import { useEffect } from "react";
+import css from "../not-found.module.scss";
 
 export default function Error({
   error,
-  reset,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
@@ -15,17 +14,9 @@ export default function Error({
   }, [error]);
 
   return (
-    <div>
-      <h1>Error page!</h1>
-      <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
+    <div className={css.container}>
+      <h1 className="h1">💥 Something went wrong! 💥</h1>
+      <p className="body1">Try reloading the page.</p>
     </div>
   );
 }

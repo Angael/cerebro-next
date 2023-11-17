@@ -1,20 +1,22 @@
 "use server";
-import axios from "axios";
+import axios from "redaxios";
 import { BASE_API_URL } from "@/utils/env";
 
 const baseURL = BASE_API_URL;
 
 export const API = axios.create({
-  timeout: 10000,
   headers: { "Content-Type": "application/json" },
   baseURL,
 });
 
-// Todo create something like this
-// export const getAuthHeader = (token) => {
-//   const token = localStorage.getItem("token");
-//   if (request && token) {
-//     request.headers.Authorization = "Bearer " + token;
-//   }
-//   return request;
-// };
+export const getApiHeaders = async (clerkAuth: {
+  getToken: () => Promise<string | null>;
+}) => {
+  const token = await clerkAuth.getToken();
+
+  if (!token) {
+    return undefined;
+  }
+
+  return { Authorization: "Bearer " + token };
+};

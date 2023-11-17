@@ -1,6 +1,5 @@
 import React from "react";
-import Layout from "@/lib/layout/Layout";
-import { API } from "@/utils/api";
+import { API, getApiHeaders } from "@/utils/api";
 import { auth } from "@clerk/nextjs";
 import Pagination from "@/lib/pagination/Pagination";
 import ItemGrid from "@/lib/item-grid/ItemGrid";
@@ -16,30 +15,16 @@ const BrowsePage = async ({ searchParams: { page } }: Props) => {
 
   // TODO: simplify making requests to the API
   const pageNr = parseInt(page ?? "1");
-  const {
-    data: { items, count },
-  } = await API.get("/items", {
+  const { data } = await API.get("/items", {
     params: { limit: 10, page: pageNr - 1 },
-    headers: {
-      Authorization: "Bearer " + (await clerkToken.getToken()),
-    },
+    headers: await getApiHeaders(clerkToken),
   });
+  const { count, items } = data;
 
   const pageCount = Math.ceil(count / 10);
 
   return (
     <>
-      {/*<pre>*/}
-      {/*  {JSON.stringify(*/}
-      {/*    {*/}
-      {/*      pageNr,*/}
-      {/*      pageCount,*/}
-      {/*      items,*/}
-      {/*    },*/}
-      {/*    null,*/}
-      {/*    2,*/}
-      {/*  )}*/}
-      {/*</pre>*/}
       <Pagination page={pageNr} pageCount={pageCount} />
       {items?.length > 0 && <ItemGrid items={items} />}
       <Pagination page={pageNr} pageCount={pageCount} />
