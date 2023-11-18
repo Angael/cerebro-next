@@ -9,6 +9,7 @@ type Props = {
 const ImageItem = ({ item }: Props) => {
   const placeholder = item.thumbnail;
 
+  const { width, height } = item.image;
   const style = {
     backgroundImage: `url(${placeholder})`,
   } as React.CSSProperties;
@@ -16,6 +17,8 @@ const ImageItem = ({ item }: Props) => {
   return (
     <div className={css.container}>
       <img
+        width={width}
+        height={height}
         style={style}
         src={item.image.src}
         alt="Viewed uploaded media item"

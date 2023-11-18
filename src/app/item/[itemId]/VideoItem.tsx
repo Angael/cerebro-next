@@ -17,6 +17,8 @@ const VideoItem = ({ item }: Props) => {
   return (
     <div className={css.container}>
       <video
+        width={width}
+        height={height}
         key={src}
         controls
         poster={item.thumbnail || ""}
