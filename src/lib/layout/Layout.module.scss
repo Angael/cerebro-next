@@ -1,8 +1,7 @@
-@use 'src/style/util';
+@use "src/style/util";
 
 .Layout {
   @include util.container();
-  container: pageContainer / inline-size;
 
   display: flex;
   flex-direction: column;

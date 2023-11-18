@@ -2,6 +2,7 @@ import React from "react";
 import { API, getApiHeaders } from "@/utils/api";
 import { auth } from "@clerk/nextjs";
 import { FrontItem } from "@vanih/cerebro-contracts";
+import ImageItem from "@/app/item/[itemId]/ImageItem";
 
 type Props = {
   params: {
@@ -23,7 +24,7 @@ const ItemPage = async ({ params }: Props) => {
   return (
     <div style={{ height: 400 }}>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-      {type === "IMAGE" && <div>IMAGE</div>}
+      {type === "IMAGE" && <ImageItem item={data} />}
       {type === "VIDEO" && <div>VIDEO</div>}
     </div>
   );
