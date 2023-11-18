@@ -23,7 +23,6 @@ const ItemPage = async ({ params }: Props) => {
 
   return (
     <div style={{ height: 400 }}>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
       {type === "IMAGE" && <ImageItem item={data} />}
       {type === "VIDEO" && <div>VIDEO</div>}
     </div>

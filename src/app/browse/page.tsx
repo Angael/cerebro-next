@@ -26,7 +26,7 @@ const BrowsePage = async ({ searchParams: { page } }: Props) => {
   return (
     <>
       <Pagination page={pageNr} pageCount={pageCount} />
-      {items?.length > 0 && <ItemGrid items={items} />}
+      {items?.length > 0 && <ItemGrid items={items} key={page} />}
       <Pagination page={pageNr} pageCount={pageCount} />
     </>
   );
