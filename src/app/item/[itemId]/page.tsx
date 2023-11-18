@@ -20,10 +20,10 @@ const ItemPage = async ({ params }: Props) => {
   const { type } = data as FrontItem;
 
   return (
-    <div style={{ height: 400 }}>
+    <>
       {type === "IMAGE" && <ImageItem item={data} />}
       {type === "VIDEO" && <div>VIDEO</div>}
-    </div>
+    </>
   );
 };
 
