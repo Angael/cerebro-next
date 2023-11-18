@@ -15,7 +15,7 @@ const VideoItem = ({ item }: Props) => {
   } as React.CSSProperties;
 
   return (
-    <div className={"flex center   " + css.container}>
+    <div className={css.container}>
       <video
         key={src}
         controls

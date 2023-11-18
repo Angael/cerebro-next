@@ -14,7 +14,7 @@ const ImageItem = ({ item }: Props) => {
   } as React.CSSProperties;
 
   return (
-    <div className={"flex center   " + css.container}>
+    <div className={css.container}>
       <img
         style={style}
         src={item.image.src}
