@@ -7,17 +7,13 @@ type Props = {
   children?: ReactNode;
   className?: string;
   isMaxWidth?: boolean;
-} & ComponentPropsWithoutRef<"div">;
+};
 
-const Layout = forwardRef<HTMLDivElement, Props>(
-  ({ children, isMaxWidth, className, ...props }, ref) => (
-    <div {...props} ref={ref}>
-      <Navbar />
-      <div className={clsx(isMaxWidth && css.Layout, className)}>
-        {children}
-      </div>
-    </div>
-  ),
+const Layout = ({ children, isMaxWidth, className, ...props }: Props) => (
+  <React.Fragment {...props}>
+    <Navbar />
+    <div className={clsx(isMaxWidth && css.Layout, className)}>{children}</div>
+  </React.Fragment>
 );
 
 export default Layout;

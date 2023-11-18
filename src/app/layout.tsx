@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "@/style/global.scss";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Suspense } from "react";
 import Layout from "@/lib/layout/Layout";
-
+import clsx from "clsx";
+import css from "./layout.module.scss";
 const open_Sans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,10 +22,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={open_Sans.className}>
-          <Layout isMaxWidth>
-            <Suspense>{children}</Suspense>
-          </Layout>
+        <body className={clsx(open_Sans.className, css.body)}>
+          <Layout isMaxWidth>{children}</Layout>
         </body>
       </html>
     </ClerkProvider>
