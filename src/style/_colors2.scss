@@ -1,27 +1,4 @@
-// https://tailwindcss.com/docs/customizing-colors
-@mixin light {
-  color-scheme: light;
-  --c-primary: #0ea5e9;
-  --c-primary-hover: #0284c7;
-  --c-primary-active: #0369a1;
-  --c-primary-contrast: #f8fafc;
-  --c-primary-contrast-weak: #cbd5e1; // unused
-
-  --c-text: #020617;
-  --c-textSecondary: #475569;
-
-  --c-disabled-bg: #e5e7eb;
-  --c-disabled-text: #d1d5db;
-
-  --c-bg: #f1f5f9;
-  --c-bg-paper: #cbd5e1cc;
-  --c-border: color-mix(in srgb, var(--c-bg-paper), var(--c-text) 45%);
-
-  --c-success: #15803d;
-  --c-error: #dc2626;
-}
-
-@mixin dark {
+html {
   color-scheme: dark;
   --c-primary: #bae6fd;
   --c-primary-hover: #7dd3fc;
@@ -41,12 +18,4 @@
 
   --c-success: #86efac;
   --c-error: #f87171;
-}
-
-html {
-  @include dark;
-
-  &.theme-light {
-    @include light;
-  }
 }

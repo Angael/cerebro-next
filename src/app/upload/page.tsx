@@ -7,7 +7,7 @@ const page = (props: Props) => {
   return (
     <div>
       <div className="flex gap-1">
-        <h1 className="h1">Import files</h1>
+        <h1 className="h2">Import files</h1>
         <Suspense>
           <UsedSpace />
         </Suspense>
