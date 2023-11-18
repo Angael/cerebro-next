@@ -1,12 +1,10 @@
 import React from "react";
 import css from "./Navbar.module.scss";
 import IconBtn from "../../styled/icon-btn/IconBtn";
-// import { useSelectItems$ } from "../../store/browse/selectItemsStore";
-// import SelectItemBar from "./select-item-bar/SelectItemBar";
 import { currentUser, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Icon from "@mdi/react";
-import { mdiCog, mdiPlus, mdiViewGrid } from "@mdi/js";
+import { mdiCog, mdiUpload, mdiViewGrid } from "@mdi/js";
 
 const Navbar = async () => {
   const user = await currentUser();
@@ -22,17 +20,17 @@ const Navbar = async () => {
           </div>
 
           {user && (
-            <IconBtn as={Link} href="/import" title="Import media">
-              <Icon path={mdiPlus} />
+            <IconBtn as={Link} href="/upload" title="Upload">
+              <Icon path={mdiUpload} />
             </IconBtn>
           )}
 
-          <IconBtn as={Link} href="/browse" title="Browse media">
+          <IconBtn as={Link} href="/browse" title="Browse">
             <Icon path={mdiViewGrid} />
           </IconBtn>
 
           {user && (
-            <IconBtn as={Link} href="/login">
+            <IconBtn as={Link} href="/settings" title="Settings">
               <Icon path={mdiCog} />
             </IconBtn>
           )}
