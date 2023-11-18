@@ -3,6 +3,7 @@ import { API, getApiHeaders } from "@/utils/api";
 import { auth } from "@clerk/nextjs";
 import { FrontItem } from "@vanih/cerebro-contracts";
 import ImageItem from "@/app/item/[itemId]/ImageItem";
+import VideoItem from "@/app/item/[itemId]/VideoItem";
 
 type Props = {
   params: {
@@ -22,7 +23,7 @@ const ItemPage = async ({ params }: Props) => {
   return (
     <>
       {type === "IMAGE" && <ImageItem item={data} />}
-      {type === "VIDEO" && <div>VIDEO</div>}
+      {type === "VIDEO" && <VideoItem item={data} />}
     </>
   );
 };

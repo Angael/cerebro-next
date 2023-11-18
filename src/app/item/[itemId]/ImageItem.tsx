@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageItem } from "@vanih/cerebro-contracts";
-import css from "./ImageItem.module.scss";
+import css from "./Item.module.scss";
 
 type Props = {
   item: ImageItem;
