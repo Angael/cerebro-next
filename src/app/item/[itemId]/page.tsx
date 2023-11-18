@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { FrontItem } from "@vanih/cerebro-contracts";
 import ImageItem from "@/app/item/[itemId]/ImageItem";
 import VideoItem from "@/app/item/[itemId]/VideoItem";
+import GoBackLink from "@/app/item/[itemId]/GoBackLink";
 
 type Props = {
   params: {
@@ -22,6 +23,7 @@ const ItemPage = async ({ params }: Props) => {
 
   return (
     <>
+      <GoBackLink />
       {type === "IMAGE" && <ImageItem item={data} />}
       {type === "VIDEO" && <VideoItem item={data} />}
     </>
