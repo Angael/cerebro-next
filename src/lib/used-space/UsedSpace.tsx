@@ -15,14 +15,12 @@ const UsedSpace = async () => {
     numeral(limits.bytes.max).format("0 b");
 
   return (
-    <div>
-      <ProgressBar
-        id="used-space"
-        label={"Used space: " + usageString}
-        value={value}
-        max={100}
-      />
-    </div>
+    <ProgressBar
+      id="used-space"
+      label={"Used space: " + usageString}
+      value={value}
+      max={100}
+    />
   );
 };
 
