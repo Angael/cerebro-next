@@ -1,10 +1,10 @@
 import React from "react";
-import css from "./not-found.module.scss";
+
 type Props = {};
 
 const NotFound = () => {
   return (
-    <article className={css.container}>
+    <article className="flex-1 flex col gap-1 center">
       <div>
         <h1 className="h1">404</h1>
         <p className="body1">Page not found</p>

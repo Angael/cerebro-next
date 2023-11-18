@@ -1,7 +1,6 @@
 "use client"; // Error components must be Client Components
 
 import { useEffect } from "react";
-import css from "../not-found.module.scss";
 
 export default function Error({
   error,
@@ -14,7 +13,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className={css.container}>
+    <div className="flex-1 flex col gap-1 center">
       <h1 className="h1">💥 Something went wrong! 💥</h1>
       <p className="body1">Try reloading the page.</p>
     </div>

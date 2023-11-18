@@ -6,7 +6,7 @@ import IconBtn from "../../styled/icon-btn/IconBtn";
 import { currentUser, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Icon from "@mdi/react";
-import { mdiAccount, mdiPlus, mdiViewGrid } from "@mdi/js";
+import { mdiCog, mdiPlus, mdiViewGrid } from "@mdi/js";
 
 const Navbar = async () => {
   const user = await currentUser();
@@ -31,11 +31,15 @@ const Navbar = async () => {
             <Icon path={mdiViewGrid} />
           </IconBtn>
 
-          <IconBtn as={Link} href="/login">
-            <Icon path={mdiAccount} />
-          </IconBtn>
+          {user && (
+            <IconBtn as={Link} href="/login">
+              <Icon path={mdiCog} />
+            </IconBtn>
+          )}
 
-          <UserButton afterSignOutUrl="/" />
+          <div style={{ width: 32, height: 32 }}>
+            <UserButton afterSignOutUrl="/" />
+          </div>
         </div>
       </div>
       {/*{showSelectedItemsBar && <SelectItemBar />}*/}

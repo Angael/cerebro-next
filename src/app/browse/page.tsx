@@ -13,7 +13,6 @@ const BrowsePage = async ({ searchParams: { page } }: Props) => {
   // console.log("clerkToken", clerkToken);
   // console.log("Token: ", await clerkToken.getToken());
 
-  // TODO: simplify making requests to the API
   const pageNr = parseInt(page ?? "1");
   const { data } = await API.get("/items", {
     params: { limit: 10, page: pageNr - 1 },

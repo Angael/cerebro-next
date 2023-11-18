@@ -13,11 +13,9 @@ type Props = {
 const ItemPage = async ({ params }: Props) => {
   const clerkToken = auth();
 
-  console.log(1);
   const { data } = await API.get(`/items/item/${params.itemId}`, {
     headers: await getApiHeaders(clerkToken),
   });
-  console.log(2, data);
 
   const { type } = data as FrontItem;
 
