@@ -62,6 +62,12 @@ a {
   }
 }
 
+details {
+  summary {
+    cursor: pointer;
+  }
+}
+
 .flex-1 {
   flex: 1;
 }

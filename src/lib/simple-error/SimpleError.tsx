@@ -1,6 +1,7 @@
 "use client"; // Error components must be Client Components
 
 import { useEffect } from "react";
+import css from "./SimpleError.module.scss";
 
 export default function SimpleError({
   error,
@@ -17,11 +18,10 @@ export default function SimpleError({
       <h1 className="h1">Something went wrong</h1>
       <p className="body1">Try reloading the page.</p>
 
-      <summary className="body1">
-        <details>
-          <pre>{JSON.stringify(error)}</pre>
-        </details>
-      </summary>
+      <details className={css.details}>
+        <summary className="body1">Details</summary>
+        <pre className={css.stack}>{JSON.stringify(error, null, 2)}</pre>
+      </details>
     </div>
   );
 }
