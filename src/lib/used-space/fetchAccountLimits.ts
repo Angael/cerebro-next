@@ -10,6 +10,7 @@ type Limits = {
 };
 
 export const fetchAccountLimits = async (): Promise<Limits> => {
+  "use server";
   const clerkToken = auth();
 
   const limitsResponse = await API.get("/account/limits", {
