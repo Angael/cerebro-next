@@ -15,29 +15,27 @@ const Navbar = async () => {
     <header className={css.navbar}>
       <div className={css.navbarBg}>
         <div className={css.navbarFlex}>
-          <div style={{ flex: 1 }}>
+          <Link style={{ flex: 1 }} href="/">
             <h1 className="h5">Cerebro</h1>
-          </div>
+          </Link>
 
-          {user && (
-            <IconBtn as={Link} href="/upload" title="Upload">
-              <Icon path={mdiUpload} />
-            </IconBtn>
-          )}
+          <IconBtn as={Link} href="/upload" title="Upload">
+            <Icon path={mdiUpload} />
+          </IconBtn>
 
           <IconBtn as={Link} href="/browse" title="Browse">
             <Icon path={mdiViewGrid} />
           </IconBtn>
 
-          {user && (
-            <IconBtn as={Link} href="/settings" title="Settings">
-              <Icon path={mdiCog} />
-            </IconBtn>
-          )}
+          <IconBtn as={Link} href="/settings" title="Settings">
+            <Icon path={mdiCog} />
+          </IconBtn>
 
-          <div style={{ width: 32, height: 32 }}>
-            <UserButton afterSignOutUrl="/" />
-          </div>
+          {user && (
+            <div style={{ width: 32, height: 32 }}>
+              <UserButton afterSignOutUrl="/" />
+            </div>
+          )}
         </div>
       </div>
       {/*{showSelectedItemsBar && <SelectItemBar />}*/}

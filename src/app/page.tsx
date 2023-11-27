@@ -1,5 +1,5 @@
-import Home from "@/app/home/Home";
+import Browse from "@/app/browse/page";
 
-export default function HomePage() {
-  return <Home />;
+export default function HomePage(props: any) {
+  return <Browse {...props} />;
 }

@@ -1,7 +1,7 @@
 import React from "react";
-import css from "./Home.module.scss";
+import css from "./About.module.scss";
 
-const Home = () => {
+const About = () => {
   return (
     <>
       <h1 className="h1">Welcome to Cerebro</h1>
@@ -48,4 +48,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default About;
