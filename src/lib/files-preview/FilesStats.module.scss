@@ -1,5 +1,5 @@
-@use "util";
-@use "breakpoints";
+@use "src/style/util";
+@use "src/style/breakpoints";
 
 .uploadFileStats {
   color: var(--c-text);

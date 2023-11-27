@@ -1,5 +1,6 @@
-@use "shadow";
-@use "util";
+// todo change into css variables?
+@use "src/style/shadow";
+@use "src/style/util";
 
 .filePreview {
   position: relative;

@@ -10,11 +10,8 @@ import { Btn } from "@/styled/btn/Btn";
 import PQueue from "p-queue";
 import { uploadFileToBackend } from "@/app/upload/files/uploadFileToBackend";
 
-type Props = {
-  tags: string[];
-};
-
-const UploadFilesPage = ({ tags }: Props) => {
+const UploadFilesPage = () => {
+  const [tags, setTags] = useState<string[]>([]);
   const [files, setFiles] = useState<ExtendedFile[]>([]);
   // TODO: Not sure if queue in ref is a good idea
   const uploadQueue = useRef(new PQueue({ concurrency: 1 }));
@@ -74,12 +71,12 @@ const UploadFilesPage = ({ tags }: Props) => {
       );
     });
 
-    uploadQueue.current.onIdle().then(() => setFiles([]));
+    // uploadQueue.current.onIdle().then(() => setFiles([]));
   };
 
   return (
     <>
-      <div className="flex col gap-1">
+      <div className="flex gap-1">
         <Btn disabled={files.length <= 0} onClick={upload}>
           Upload
         </Btn>
