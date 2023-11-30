@@ -11,7 +11,7 @@ import PQueue from "p-queue";
 import { uploadFileToBackend } from "@/app/upload/files/uploadFileToBackend";
 
 const UploadFilesPage = () => {
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>(["test"]);
   const [files, setFiles] = useState<ExtendedFile[]>([]);
   // TODO: Not sure if queue in ref is a good idea
   const uploadQueue = useRef(new PQueue({ concurrency: 1 }));
