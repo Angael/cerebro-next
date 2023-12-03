@@ -9,6 +9,7 @@ import FilesPreview from "@/lib/files-preview/FilesPreview";
 import { Btn } from "@/styled/btn/Btn";
 import PQueue from "p-queue";
 import { uploadFileToBackend } from "@/app/upload/files/uploadFileToBackend";
+import { preventLeave } from "@/client/preventLeave";
 
 const UploadFilesPage = () => {
   const [tags, setTags] = useState<string[]>(["test"]);
@@ -47,6 +48,7 @@ const UploadFilesPage = () => {
   };
 
   const upload = () => {
+    preventLeave(true);
     files.forEach((file) => {
       uploadQueue.current.add(() =>
         uploadFileToBackend({
@@ -71,7 +73,7 @@ const UploadFilesPage = () => {
       );
     });
 
-    // uploadQueue.current.onIdle().then(() => setFiles([]));
+    uploadQueue.current.onIdle().then(() => preventLeave(false));
   };
 
   return (
