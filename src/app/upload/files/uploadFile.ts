@@ -2,12 +2,18 @@ type Callbacks = {
   onProgress: (percentage: number) => void;
 };
 
-export function uploadFile(formData: FormData, { onProgress }: Callbacks) {
+export function uploadFile(
+  apiUrl: string,
+  token: string,
+  formData: FormData,
+  { onProgress }: Callbacks,
+) {
   return new Promise<void>((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    const uploadUrl = "/api/upload";
+    const uploadUrl = `${apiUrl}/items/upload/file`;
 
     xhr.open("POST", uploadUrl, true);
+    xhr.setRequestHeader("Authorization", `Bearer ${token}`);
 
     xhr.upload.onprogress = function (event) {
       if (event.lengthComputable) {
