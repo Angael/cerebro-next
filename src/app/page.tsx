@@ -1,5 +1,7 @@
-import Browse from "@/app/browse/page";
+import { redirect } from "next/navigation";
 
 export default function HomePage(props: any) {
-  return <Browse {...props} />;
+  redirect("/browse");
+
+  return null;
 }
