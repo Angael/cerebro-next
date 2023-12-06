@@ -9,8 +9,6 @@ import { mdiCog, mdiUpload, mdiViewGrid } from "@mdi/js";
 const Navbar = async () => {
   const user = await currentUser();
 
-  const showSelectedItemsBar = false; //useSelectItems$((s) => s.turnedOn);
-
   return (
     <header className={css.navbar}>
       <div className={css.navbarBg}>
@@ -38,7 +36,6 @@ const Navbar = async () => {
           )}
         </div>
       </div>
-      {/*{showSelectedItemsBar && <SelectItemBar />}*/}
     </header>
   );
 };
