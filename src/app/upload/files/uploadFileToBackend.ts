@@ -2,7 +2,6 @@ import { uploadFile } from "@/app/upload/files/uploadFile";
 import { ExtendedFile } from "@/app/upload/files/uploadTypes";
 
 interface IOptions {
-  apiUrl: string;
   token: string;
   file: ExtendedFile;
   tags: string[];
@@ -12,7 +11,6 @@ interface IOptions {
 }
 
 export const uploadFileToBackend = ({
-  apiUrl,
   token,
   file,
   tags,
@@ -25,7 +23,7 @@ export const uploadFileToBackend = ({
   });
 
   // TODO: Ugly parameter passing
-  return uploadFile(apiUrl, token, formData, {
+  return uploadFile(token, formData, {
     onProgress,
   });
 };

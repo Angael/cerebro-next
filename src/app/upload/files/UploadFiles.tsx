@@ -8,15 +8,11 @@ import { ExtendedFile, UPLOAD_STATUS } from "@/app/upload/files/uploadTypes";
 import FilesStats from "@/lib/files-preview/FilesStats";
 
 import FilesPreview from "@/lib/files-preview/FilesPreview";
-import { Btn } from "@/styled/btn/Btn";
+import { Btn, BtnLink } from "@/styled/btn/Btn";
 import { uploadFileToBackend } from "@/app/upload/files/uploadFileToBackend";
 import { preventLeave } from "@/client/preventLeave";
 
-type Props = {
-  apiUrl: string;
-};
-
-const UploadFilesPage = ({ apiUrl }: Props) => {
+const UploadFilesPage = () => {
   const [tags, setTags] = useState<string[]>(["test"]);
   const [files, setFiles] = useState<ExtendedFile[]>([]);
   // TODO: Not sure if queue in ref is a good idea
@@ -58,7 +54,6 @@ const UploadFilesPage = ({ apiUrl }: Props) => {
     files.forEach((file) => {
       uploadQueue.current.add(async () =>
         uploadFileToBackend({
-          apiUrl,
           token: (await getToken()) as string, // page is guarded, token is always present
           file,
           dir: "",
@@ -91,23 +86,8 @@ const UploadFilesPage = ({ apiUrl }: Props) => {
           Upload
         </Btn>
 
-        <label htmlFor="contained-button-file">
-          <input
-            key={files.length}
-            type="file"
-            multiple
-            id="contained-button-file"
-            style={{ display: "none" }}
-            onChange={onInputFiles}
-          />
-          <Btn as="div">Add files...</Btn>
-        </label>
-
-        <Btn disabled={files.length <= 0} onClick={() => setFiles([])}>
-          Remove all
-        </Btn>
+        <BtnLink href={"/upload-from-link"}>Import from link</BtnLink>
       </div>
-
       <Suspense fallback={null}>
         <FilesPreview
           files={files}

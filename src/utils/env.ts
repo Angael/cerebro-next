@@ -5,4 +5,4 @@ const verifyEnv = <T = string>(env: T | undefined): T => {
   return env;
 };
 
-export const BASE_API_URL = verifyEnv(process.env.BASE_API_URL);
+export const NEXT_PUBLIC_API_URL = verifyEnv(process.env.NEXT_PUBLIC_API_URL);

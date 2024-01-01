@@ -1,10 +1,10 @@
 "use server";
 import axios from "redaxios";
-import { BASE_API_URL } from "@/utils/env";
+import { NEXT_PUBLIC_API_URL } from "@/utils/env";
 
-const baseURL = BASE_API_URL;
+const baseURL = NEXT_PUBLIC_API_URL;
 
-export const API = axios.create({
+export const BackendApi = axios.create({
   headers: { "Content-Type": "application/json" },
   baseURL,
 });

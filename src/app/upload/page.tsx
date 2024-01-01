@@ -1,7 +1,8 @@
 import React from "react";
+import UploadFiles from "@/app/upload/files/UploadFiles";
 
 const page = () => {
-  return null;
+  return <UploadFiles />;
 };
 
 export default page;

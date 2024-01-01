@@ -456,6 +456,11 @@
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.7.2.tgz#c4a994d6f2b0a6901741a805c32da94db964880d"
   integrity sha512-vPYoNCOI8W+jFLnyEAYQL7/qURE7XzVE/TvkmNSko8LU55jFshee342p4GNFOTsYFgJty7Da5bw4m2P3vaKWMw==
 
+"@tanstack/react-query-next-experimental@^5.17.0":
+  version "5.17.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-next-experimental/-/react-query-next-experimental-5.17.0.tgz#32634a6b9db5955af8bca47531b6aadbde144983"
+  integrity sha512-mwYZdlEMgrxnfPSM3EOAeUocumwE5XnIDPSzOg+9drzuFZd0D6KTYINFbwot4dOUK17GvIqaBJrKwa8ZsYaUoA==
+
 "@tanstack/react-query@^5.7.2":
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.7.2.tgz#28a697ed9b8e5ae5c19f79a692180e819555c91f"

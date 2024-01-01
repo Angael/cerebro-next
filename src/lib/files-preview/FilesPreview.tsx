@@ -16,13 +16,17 @@ interface IProps {
 const FilesPreview = ({ files, onDelete, onAddFiles }: IProps) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: onAddFiles,
-    noClick: true,
+    noClick: files.length > 0,
   });
 
   return (
     <section
       {...getRootProps()}
-      className={clsx(css.MyGrid, isDragActive && css.onDrag)}
+      className={clsx(
+        css.MyGrid,
+        isDragActive && css.onDrag,
+        files.length === 0 && css.canClick,
+      )}
     >
       {files.length === 0 && (
         <div className={css.dragWatermark}>

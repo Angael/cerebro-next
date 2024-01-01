@@ -1,5 +1,5 @@
 import React from "react";
-import { API, getApiHeaders } from "@/utils/api";
+import { BackendApi, getApiHeaders } from "@/utils/backend-api";
 import { auth } from "@clerk/nextjs";
 import { FrontItem } from "@vanih/cerebro-contracts";
 import ImageItem from "@/app/item/[itemId]/ImageItem";
@@ -15,7 +15,7 @@ type Props = {
 const ItemPage = async ({ params }: Props) => {
   const clerkToken = auth();
 
-  const { data } = await API.get(`/items/item/${params.itemId}`, {
+  const { data } = await BackendApi.get(`/items/item/${params.itemId}`, {
     headers: await getApiHeaders(clerkToken),
   });
 

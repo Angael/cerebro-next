@@ -1,16 +1,17 @@
+import { NEXT_PUBLIC_API_URL } from "@/utils/env";
+
 type Callbacks = {
   onProgress: (percentage: number) => void;
 };
 
 export function uploadFile(
-  apiUrl: string,
   token: string,
   formData: FormData,
   { onProgress }: Callbacks,
 ) {
   return new Promise<void>((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    const uploadUrl = `${apiUrl}/items/upload/file`;
+    const uploadUrl = `${NEXT_PUBLIC_API_URL}/items/upload/file`;
 
     xhr.open("POST", uploadUrl, true);
     xhr.setRequestHeader("Authorization", `Bearer ${token}`);
