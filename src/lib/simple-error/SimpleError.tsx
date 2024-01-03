@@ -18,9 +18,20 @@ export default function SimpleError({
       <h1 className="h1">Something went wrong</h1>
       <p className="body1">Try reloading the page.</p>
 
-      <details className={css.details}>
+      <details
+        className={css.details}
+        open={process.env.NODE_ENV !== "production"}
+      >
         <summary className="body1">Details</summary>
-        <pre className={css.stack}>{JSON.stringify(error, null, 2)}</pre>
+        <pre className={css.stack}>
+          {process.env.NODE_ENV === "production"
+            ? `${error.name}: ${error.message}`
+            : error.stack?.split("\n").map((line, i) => (
+                <p key={i} className="body1">
+                  {line}
+                </p>
+              ))}
+        </pre>
       </details>
     </div>
   );
