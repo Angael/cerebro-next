@@ -1,3 +1,4 @@
+"use server";
 import { auth } from "@clerk/nextjs";
 import { BackendApi, getApiHeaders } from "@/utils/backend-api";
 
@@ -10,7 +11,6 @@ type Limits = {
 };
 
 export const fetchAccountLimits = async (): Promise<Limits> => {
-  "use server";
   const clerkToken = auth();
 
   const limitsResponse = await BackendApi.get("/account/limits", {

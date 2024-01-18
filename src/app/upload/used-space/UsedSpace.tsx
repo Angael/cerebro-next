@@ -1,6 +1,6 @@
 import React from "react";
 import numeral from "numeral";
-import { fetchAccountLimits } from "@/lib/used-space/fetchAccountLimits";
+import { fetchAccountLimits } from "@/app/upload/used-space/fetchAccountLimits";
 import ProgressBar from "@/styled/progress-bar/ProgressBar";
 
 type Props = {};

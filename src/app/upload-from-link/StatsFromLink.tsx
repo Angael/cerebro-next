@@ -3,13 +3,15 @@ import numeral from "numeral";
 
 import css from "./StatsFromLink.module.scss";
 import Card from "@/styled/card/Card";
+import clsx from "clsx";
 
 type Props = {
   stats: any;
   isFetching: boolean;
+  isError?: boolean;
 };
 
-const StatsFromLink = ({ stats, isFetching }: Props) => {
+const StatsFromLink = ({ stats, isFetching, isError }: Props) => {
   const { title, duration, thumbnail, resolution, fps, ext, filesize_approx } =
     stats ?? {
       title: "Title of video",
@@ -26,7 +28,7 @@ const StatsFromLink = ({ stats, isFetching }: Props) => {
 
   return (
     <Card
-      className={css.StatsFromLink}
+      className={clsx(css.StatsFromLink, isError && css.error)}
       style={{ opacity: isFetching ? 0.5 : 1 }}
     >
       <img src={thumbnail} alt="thumbnail" className={css.thumbnail} />
