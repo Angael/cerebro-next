@@ -1,9 +1,17 @@
-// TODO: this "proxy" not needed when we merge fe and be
-export const uploadFileFromLink = async (link: string) =>
-  fetch("/api/upload-from-link", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+"use server";
+import { auth } from "@clerk/nextjs";
+import { BackendApi, getApiHeaders } from "@/utils/backend-api";
+
+export const uploadFileFromLink = async (link: string) => {
+  const clerkToken = auth();
+
+  const response = await BackendApi.post(
+    "/items/upload/file-from-link",
+    { link },
+    {
+      headers: await getApiHeaders(clerkToken),
     },
-    body: JSON.stringify({ link }),
-  }).then((res) => res.json());
+  );
+
+  return Response.json(response.body);
+};
