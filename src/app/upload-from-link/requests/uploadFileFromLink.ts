@@ -13,5 +13,5 @@ export const uploadFileFromLink = async (link: string) => {
     },
   );
 
-  return Response.json(response.body);
+  return response.body;
 };
